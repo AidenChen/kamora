@@ -8,6 +8,12 @@ function start (options) {
   const app = new Koa()
   app.use(bodyParser())
 
+  // 加载配置
+  exports.config = require('./lib/load_config')
+
+  // 加载模型
+  require('./lib/load_model').load()
+
   // 加载控制器
   require('./lib/load_controller').load(app)
 
@@ -17,7 +23,6 @@ function start (options) {
   })
 }
 
-module.exports = {
-  start: start,
-  Router: require('./lib/base/router')
-}
+module.exports.Router = require('./lib/base/router')
+
+module.exports.start = start
