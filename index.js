@@ -11,6 +11,9 @@ function start (options) {
   // 加载配置
   exports.config = require('./lib/load_config')
 
+  // 加载数据库连接
+  require('./lib/load_connection').load(exports)
+
   // 加载模型
   require('./lib/load_model').load()
 
@@ -22,6 +25,8 @@ function start (options) {
     console.log('Listening: ' + 3000)
   })
 }
+
+module.exports.Database = require('mongoose')
 
 module.exports.Router = require('./lib/base/router')
 
