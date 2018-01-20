@@ -1,3 +1,3 @@
 module.exports = {
-  success: 'ok'
+  middleware: ['formatResponse']
 }

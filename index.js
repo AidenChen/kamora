@@ -17,6 +17,9 @@ function start (options) {
   // 加载模型
   require('./lib/load_model').load()
 
+  // 加载中间件
+  require('./lib/load_middleware').load(exports, app)
+
   // 加载控制器
   require('./lib/load_controller').load(app)
 
