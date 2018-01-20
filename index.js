@@ -30,4 +30,6 @@ module.exports.Database = require('mongoose')
 
 module.exports.Router = require('./lib/base/router')
 
+module.exports.Error = require('./lib/base/error')
+
 module.exports.start = start
