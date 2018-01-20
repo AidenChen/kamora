@@ -1,8 +1,8 @@
 const Quantum = require('../../../../')
+const error = require('../../../config/error')
 
 const router = new Quantum.Router()
 const Post = Quantum.Database.model('post')
-const error = Quantum.config.error
 
 router.push({
   method: 'get',

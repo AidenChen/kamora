@@ -1,6 +1,5 @@
 const Quantum = require('../../../')
-
-const error = Quantum.config.error
+const error = require('../../config/error')
 
 async function formatResponse (ctx, next) {
   try {
@@ -14,12 +13,17 @@ async function formatResponse (ctx, next) {
         detail = error.detail.get(error.name.UNKNOW_ERROR)
       }
 
+      const code = detail.code
+      const message = err.message || detail.message
+      err.code = code
+      err.message = message
+
       ctx.body = {
-        code: detail.code,
-        msg: err.message || detail.message
+        code: code,
+        msg: message
       }
     }
-    return
+    throw err
   }
 
   ctx.body = {
