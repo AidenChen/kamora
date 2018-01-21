@@ -1,9 +1,11 @@
-const log4js = require('log4js')
+const Quantum = require('../../../')
 const logConfig = require('../../config/log')
 
-log4js.configure(logConfig)
-const errorLogger = log4js.getLogger('errorLogger')
-const apiLogger = log4js.getLogger('apiLogger')
+const Logger = Quantum.Logger
+
+Logger.configure(logConfig)
+const errorLogger = Logger.getLogger('errorLogger')
+const apiLogger = Logger.getLogger('apiLogger')
 
 function logError (ctx, duration, error) {
   if (ctx && error) {
