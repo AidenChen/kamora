@@ -1,10 +1,10 @@
-const Quantum = require('../../../../')
+const Kamora = require('../../../../')
 const error = require('../../../config/error')
 const validate = require('../../middleware/validate')
 
-const router = new Quantum.Router()
-const Post = Quantum.Database.model('post')
-const Validator = Quantum.Validator
+const router = new Kamora.Router()
+const Post = Kamora.Database.model('post')
+const Validator = Kamora.Validator
 
 router.push({
   method: 'get',
@@ -24,7 +24,7 @@ router.push({
         .catch(() => {
         })
 
-      // throw new Quantum.Error(error.name.INVALID_FIELD)
+      // throw new Kamora.Error(error.name.INVALID_FIELD)
       ctx.body = postCreated
       await next()
     }

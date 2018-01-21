@@ -1,8 +1,8 @@
 const _ = require('lodash')
-const Quantum = require('../../../')
+const Kamora = require('../../../')
 const error = require('../../config/error')
 
-const Validator = Quantum.Validator
+const Validator = Kamora.Validator
 
 module.exports = (options) => {
   return async (ctx, next) => {
@@ -26,7 +26,7 @@ module.exports = (options) => {
     ctx.filter = {}
     for (let [key, value] of result) {
       if (value.error) {
-        throw new Quantum.Error(error.name.INVALID_FIELD, value.error.details[0].message)
+        throw new Kamora.Error(error.name.INVALID_FIELD, value.error.details[0].message)
       } else {
         ctx.filter[key] = value.value
       }

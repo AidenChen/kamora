@@ -3,7 +3,7 @@ const bodyParser = require('koa-bodyparser')
 
 function start (options) {
   // 环境变量声明
-  process.env.QUANTUM_BASE_DIR = options.baseDir
+  process.env.KAMORA_BASE_DIR = options.baseDir
 
   const app = new Koa()
   app.use(bodyParser())

@@ -1,6 +1,6 @@
-const Quantum = require('../../../')
+const Kamora = require('../../../')
 
-const Schema = Quantum.Database.Schema
+const Schema = Kamora.Database.Schema
 
 const postSchema = new Schema({
   title: String
@@ -15,4 +15,4 @@ postSchema.set('toJSON', {
   }
 })
 
-module.exports = Quantum.Database.model('post', postSchema)
+module.exports = Kamora.Database.model('post', postSchema)

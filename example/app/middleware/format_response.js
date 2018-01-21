@@ -1,11 +1,11 @@
-const Quantum = require('../../../')
+const Kamora = require('../../../')
 const error = require('../../config/error')
 
 async function formatResponse (ctx, next) {
   try {
     await next()
   } catch (err) {
-    if (err instanceof Quantum.Error) {
+    if (err instanceof Kamora.Error) {
       let detail
       if (err.name) {
         detail = error.detail.get(err.name)

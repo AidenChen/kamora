@@ -1,7 +1,7 @@
-const Quantum = require('../../../')
+const Kamora = require('../../../')
 const logConfig = require('../../config/log')
 
-const Logger = Quantum.Logger
+const Logger = Kamora.Logger
 
 Logger.configure(logConfig)
 const errorLogger = Logger.getLogger('errorLogger')

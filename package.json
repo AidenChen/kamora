@@ -1,6 +1,6 @@
 {
-  "name": "quantum",
-  "version": "0.0.0",
+  "name": "kamora",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AidenChen/quantum.git"
+    "url": "git+https://github.com/AidenChen/kamora.git"
   },
   "author": "AidenChen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AidenChen/quantum/issues"
+    "url": "https://github.com/AidenChen/kamora/issues"
   },
-  "homepage": "https://github.com/AidenChen/quantum#readme",
+  "homepage": "https://github.com/AidenChen/kamora#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
     "joi": "^13.1.1",
