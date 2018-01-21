@@ -20,6 +20,7 @@
   "homepage": "https://github.com/AidenChen/quantum#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "joi": "^13.1.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.3.0",

@@ -31,6 +31,8 @@ function start (options) {
 
 module.exports.Database = require('mongoose')
 
+module.exports.Validator = require('joi')
+
 module.exports.Router = require('./lib/base/router')
 
 module.exports.Error = require('./lib/base/error')

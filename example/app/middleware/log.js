@@ -8,7 +8,6 @@ async function log (ctx, next) {
     duration = new Date() - start
     logService.logApi(ctx, duration)
   } catch (err) {
-    // console.log(err)
     duration = new Date() - start
     logService.logError(ctx, duration, err)
   }
