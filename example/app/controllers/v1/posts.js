@@ -7,17 +7,17 @@ const Post = Kamora.Database.model('post')
 const Validator = Kamora.Validator
 
 router.push({
-  method: 'get',
+  method: 'post',
   path: '/',
   processors: [
     validate({
-      query: {
+      body: {
         title: Validator.string().max(20).required()
       }
     }),
     async (ctx, next) => {
       const post = new Post({
-        title: ctx.filter.query.title
+        title: ctx.filter.body.title
       })
       const postCreated = await post
         .save()
