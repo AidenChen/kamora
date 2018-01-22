@@ -1,7 +1,7 @@
 {
   "name": "kamora",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "一个基于 koa2 的 Node.js 框架",
   "main": "index.js",
   "scripts": {
     "start": "npm run demo",
