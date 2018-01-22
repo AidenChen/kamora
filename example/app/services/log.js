@@ -38,6 +38,7 @@ const formatError = function (ctx, duration, error) {
   let logText = ''
   logText += '\n' + '*************** error log start ***************' + '\n'
   logText += formatRequest(ctx.request, duration)
+  logText += 'error status: ' + error.status + '\n'
   logText += 'error name: ' + error.name + '\n'
   logText += 'error code: ' + error.code + '\n'
   logText += 'error message: ' + error.message + '\n'

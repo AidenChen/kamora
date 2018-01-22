@@ -21,11 +21,11 @@ function start (options) {
   require('./lib/load_middleware').load(exports, app)
 
   // 加载控制器
-  require('./lib/load_controller').load(app)
+  require('./lib/load_controller').load(exports, app)
 
   // 开启服务
-  app.listen(3000, function () {
-    console.log('Listening: ' + 3000)
+  app.listen(exports.config.app.port, function () {
+    console.log('Listening: ' + exports.config.app.port)
   })
 }
 
