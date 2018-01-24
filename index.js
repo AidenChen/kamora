@@ -24,7 +24,9 @@ function start (options) {
   require('./lib/load_controller').load(exports, app)
 
   // 开启服务
-  app.listen(exports.config.app.port, function () {
+  const server = require('http').createServer(app.callback())
+  exports.server = server
+  server.listen(exports.config.app.port, function () {
     console.log('Listening: ' + exports.config.app.port)
   })
 }
