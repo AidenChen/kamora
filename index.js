@@ -12,7 +12,7 @@ function start (options) {
   exports.config = require('./lib/load_config')
 
   // 加载数据库连接
-  require('./lib/load_connection').load(exports)
+  exports.redis = require('./lib/load_connection').load(exports)
 
   // 加载模型
   require('./lib/load_model').load()

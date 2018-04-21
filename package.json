@@ -20,6 +20,7 @@
   "homepage": "https://github.com/AidenChen/kamora#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "ioredis": "^3.2.2",
     "joi": "^13.1.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
