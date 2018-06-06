@@ -1,5 +1,9 @@
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
+const enforceHttps = require('koa-sslify')
+const http = require('http')
+const https = require('https')
+const fs = require('fs')
 
 function start (options) {
   // 环境变量声明
@@ -11,8 +15,17 @@ function start (options) {
   // 加载配置
   exports.config = require('./lib/load_config')
 
+  // ssl中间件
+  if (JSON.parse(exports.config.ssl.enable)) {
+    app.use(enforceHttps())
+  }
+
   // 加载数据库连接
-  exports.redis = require('./lib/load_connection').load(exports)
+  if (JSON.parse(exports.config.database.redis.enable)) {
+    exports.redis = require('./lib/load_connection').load(exports)
+  } else {
+    require('./lib/load_connection').load(exports)
+  }
 
   // 加载模型
   require('./lib/load_model').load()
@@ -24,7 +37,17 @@ function start (options) {
   require('./lib/load_controller').load(exports, app)
 
   // 开启服务
-  const server = require('http').createServer(app.callback())
+  let server
+  if (JSON.parse(exports.config.ssl.enable)) {
+    const options = {
+      key: fs.readFileSync(exports.config.ssl.key),
+      cert: fs.readFileSync(exports.config.ssl.pem)
+    }
+
+    server = https.createServer(options, app.callback())
+  } else {
+    server = http.createServer(app.callback())
+  }
   exports.server = server
   server.listen(exports.config.app.port, function () {
     console.log('Listening: ' + exports.config.app.port)
