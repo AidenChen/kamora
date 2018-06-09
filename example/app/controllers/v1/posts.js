@@ -24,7 +24,7 @@ router.push({
         .catch(() => {
         })
 
-      // throw new Kamora.Error(error.name.INVALID_FIELD)
+      // throw new Kamora.Error(error.name.INVALID_FORMAT)
       ctx.body = postCreated
       await next()
     }
