@@ -9,6 +9,7 @@ function formatError (err) {
     detail = error.detail.get(error.name.REQUEST_FAILED)
   }
 
+  err.status = err.status || detail.status
   err.code = detail.code
   err.message = err.message || detail.message
 
